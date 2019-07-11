@@ -1,0 +1,7 @@
+<%= form_with model: @todo, local: true do |t|%>
+    <%= t.label :description, 'Ingrese To-Do'%>
+    <%= t.text_area :description%>
+    <%= t.label :completed, 'Completado?'%>
+    <%= t.check_box :completed%>
+    <%= t.submit "Enviar"%>
+<% end %>

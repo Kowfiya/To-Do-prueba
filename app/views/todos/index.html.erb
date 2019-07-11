@@ -1,0 +1,27 @@
+<section class="container">
+    <div class="my-3">
+        <h1>Lista de TO-DO</h1>
+        <%= link_to 'Nuevo To-Do', todos_new_path, class: 'btn btn-primary' %>
+        <%= link_to 'Lista', todos_list_path, class: 'btn btn-secondary' %>
+    </div>
+    <div class="row">
+    <% @todos.each do |i| %>
+    <div class="col-md-6">
+        <div class="card my-3">
+            <div class="card-header">
+            TO-DO
+            </div>
+            <div class="card-body">
+                <p class="card-text"><%= i.description %></p>
+                <% if i.completed == false %>
+                <%= link_to 'Completar', complete_todo_path(i), method: :post, class: 'btn btn-warning' %>
+                <%end%>
+                <%= link_to 'Mostrar', i, class: 'btn btn-primary' %>
+                <%= link_to 'Editar', edit_todo_path(i), class: 'btn btn-secondary' %>
+                <%= link_to 'Borrar', i, method: :delete, data: { confirm: 'Seguro que deseas eliminar el To-Do?' }, class: 'btn btn-danger' %>
+            </div>
+        </div> 
+    </div>                 
+    <%end%>
+    </div>
+</section>
